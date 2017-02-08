@@ -1,0 +1,356 @@
+:root {
+  --white        : #fff;
+  --lightest     : #eee;
+  --lighter      : #ddd;
+  --light        : #ccc;
+  --mid          : #999;
+  --dark         : #333;
+  --darker       : #222;
+  --darkest      : #111;
+  --black        : #000;
+  --default      : #aaa;
+  --primary      : #29f;
+  --success      : #4c4;
+  --info         : #ccc;
+  --warning      : #cc0;
+  --danger       : #c03;
+  --font-heading : Overpass, Helvetica, sans-serif;
+  --font-body    : Arial, serif;
+  --font-mono    : Monaco, monospace;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--lightest);
+}
+
+/** TYPOGRAPHY **/
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--black);
+}
+
+p, span, small, pre, code {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 2rem;
+  
+  color: var(--black);
+}
+
+p {
+  text-indent: 2rem;
+  margin: 0;
+}
+
+small {
+  font-size: 0.75rem;
+}
+
+/*
+Remove underlines.
+*/
+a {
+  text-decoration: none;
+}
+
+pre, code {
+  padding: 0.25rem 0.25rem;
+  
+  font-family: var(--font-mono);
+  border-radius: 0.25rem;
+  
+  background-color: var(--lighter);
+}
+
+/*
+
+Titles are meant to go hand & hand with subtitles, on the same line.
+This is done by inline-block method.
+
+Subtitles are only inline if preceded by a title
+
+*/
+.title {
+  display: inline;
+  font-size: 2.5em;
+}
+
+.title + .subtitle {
+  display: inline;
+  font-weight: 400;
+  color: var(--mid);
+}
+
+/** FORMS **/
+
+/*
+
+1. Full-width by default
+2. Remove borders
+3. Make background transparent
+4. Give bottom outline
+5. Fix text
+
+*/
+select, input[type], textarea {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  
+  color: var(--darkest);
+  font-family: var(--font-body);
+  
+  background-color: var(--white);
+  
+  border: 0;
+}
+
+
+/*
+
+Bigger by default.
+
+*/
+select, input[type] {
+  min-height: 3rem;
+  line-height: 3rem;
+  
+  font-size: 1rem;
+  text-indent: 1rem;
+  
+  border-bottom: 2px solid var(--light);
+}
+
+textarea {
+  padding: 1rem;
+  margin-top: 0.25em;
+  border-left: 2px solid var(--light);
+}
+
+.no-indent {
+  text-ident: 0;
+}
+
+/** BUTTONS **/
+
+/*
+Main button class.
+
+Button should be an inline-block.
+Text should be heavy and undecorated.
+The cursor should change to a pointer.
+
+*/
+button, .btn, input[type='button'], input[type='submit'] {
+  box-sizing: border-box;
+  border: 0;
+  padding: 0 0.25rem;
+  width: initial;
+  
+  display: inline-block;
+  min-height: 2rem;
+  line-height: 2rem;
+  
+  font-family: monospace;
+  font-weight: 700;
+  font-size: 1rem;
+  text-indent: 0;
+  
+  outline: none;
+  text-decoration: none;
+  
+  background-color: var(--default);
+  color: var(--black);
+  
+  cursor: pointer;
+}
+
+.btn-round {
+  border-radius: 0.25rem;
+}
+
+.btn-lg {
+  font-size: 2rem;
+  line-height: 2rem;
+  min-height: 3rem;
+}
+
+/*
+standard buttons
+*/
+button, .btn, .btn-default {
+  background-color: var(--default);
+}
+.btn-primary       { background-color: var(--primary); color: var(--white);  }
+.btn-success       { background-color: var(--success); color: var(--white);  }
+.btn-warning       { background-color: var(--warning); color: var(--white);  }
+.btn-info          { background-color: var(--info);    color: var(--white);  }
+.btn-danger        { background-color: var(--danger);  color: var(--white);  }
+
+/*
+clear buttons
+*/
+.btn-clear {
+  background-color: transparent;
+}
+
+.btn-clear.btn-primary       { color: var(--primary);  }
+.btn-clear.btn-success       { color: var(--success);  }
+.btn-clear.btn-warning       { color: var(--warning); }
+.btn-clear.btn-info          { color: var(--info);  }
+.btn-clear.btn-danger        { color: var(--danger); }
+
+/*
+outlined buttons
+*/
+.btn-outline {
+  background-color: transparent;
+  outline: 2px solid var(--default);
+  outline-offset: -2px;
+  color: var(--default);
+}
+
+.btn-outline.btn-default       { outline-color: var(--default); color: var(--default);  }
+.btn-outline.btn-primary       { outline-color: var(--primary); color: var(--primary);  }
+.btn-outline.btn-success       { outline-color: var(--success); color: var(--success);  }
+.btn-outline.btn-warning       { outline-color: var(--warning); color: var(--warning);  }
+.btn-outline.btn-info          { outline-color: var(--info);    color: var(--info);     }
+.btn-outline.btn-danger        { outline-color: var(--danger);  color: var(--danger);   }
+
+/** GRID **/
+
+/*
+Container-type sizing is handled properly
+*/
+.row {
+  box-sizing: border-box;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: row;
+}
+
+/*
+Rows immediately following a row are offset from each other.
+*/
+.row + .row {
+  margin-top: 0.25rem;
+}
+
+.col {
+  box-sizing: border-box;
+  
+  vertical-align: top;
+  
+  overflow: hidden;
+}
+
+.one     { width: 8.33%;  }
+.two     { width: 16.66%; }
+.three   { width: 25%;    }
+.four    { width: 33.33%; }
+.five    { width: 41.66%; }
+.six     { width: 50%;    }
+.seven   { width: 58.33%; }
+.eight   { width: 66.66%; }
+.nine    { width: 75%;    }
+.ten     { width: 83.33%; }
+.eleven  { width: 91.66%; }
+.twelve  { width: 100%;   }
+
+
+/* layout */
+.at-start {
+  align-self: flex-start;
+}
+
+.centered {
+  width: 100%;
+  align-self: center;
+}
+
+.at-end {
+  margin-left: auto;
+}
+
+/** LISTS **/
+
+.item-list {
+  padding: 0;
+  margin: 0;
+  
+  list-style: none;
+}
+
+/*
+Can be used for anything
+*/
+.item {
+  margin: 0;
+  padding: 0;
+  
+  display: flex;
+  flex-direction: row;
+  
+  background-color: var(--lightest);
+}
+
+.item.multiline .row {
+  align-items: center;
+}
+
+.item.divider {
+  background-color: var(--)
+}
+
+.item .edge {
+  
+}
+
+/*
+Left and right edges should hug the corresponding sides.
+
+*/
+.item .left.edge {
+  margin-right: 1rem;
+  align-self: flex-start;
+}
+
+.item .right.edge {
+  margin-left: auto;
+  align-self: right;
+}
+
+/** CONTAINERS **/
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.padded {
+  padding: 2rem;
+}
+
+/* Utilities */
+
+.primary { color: var(--primary); }
+.success { color: var(--success); }
+.warning { color: var(--warning); }
+.info { color: var(--info); }
+.danger { color: var(--danger); }
+
+.bg-primary { background-color: var(--primary); }
+.bg-success { background-color: var(--success); }
+.bg-warning { background-color: var(--warning); }
+.bg-info { background-color: var(--info); }
+.bg-danger { background-color: var(--danger); }
+
+
+
